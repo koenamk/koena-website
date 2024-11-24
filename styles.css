@@ -1,21 +1,23 @@
-:root {
-  --primary-color: #2C3E50; /* Midnight Blue */
-  --accent-color: #6A1B9A;  /* Electric Purple */
-  --secondary-color: #00BFA5; /* Soft Cyan */
-  --background-color: #F8F9FA; /* Off-white */
+:root { 
+  --secondary-color: #4A90E2; /* Sea Blue */
+  --border-accent-color: #E97F3D;  /* Terracotta orange */
+  --button-color: #FFD700; /* lemon yellow */
   --text-color: #333333; /* Charcoal */
-  --secondary-text-color: #B0B0B0; /* Light Gray */
-  --hover-color: #FFA726; /* Bright Orange */
+  --subtle-color: #708238; /* olive green */
+  --hover-color: #D6336C; /* bougainvillea pink */
+  --divider-color: #FF6F61; /* sunset coral */
+  --gradient: #85D4E3; /* sky aqua */ 
 
 body {
-  background-color: var(--background-color);
+  background-color: #FFFFF0;
   color: var(--text-color);
-  font-family: "Source Serif 4";
+  font-family: "Open Sans";
   line-height: 160%;
   margin: 40px;
 }
 
 h1 {
+  font-family: "Bona Nova";
   font-size: 80px;
   font-weight: 500;
   text-align: center;
@@ -23,12 +25,19 @@ h1 {
 }
 
 h2 {
+  font-family: "Bona Nova";
   color: var(--primary-color);
 }
 
 h3 {
+  font-family: "Bona Nova";
   font-weight: 600;
   color: var(--accent-color);
+}
+
+.tagline {
+  font-family: "Open Sans";
+  font-weight: 300;
 }
 
 .main-header {
@@ -36,10 +45,6 @@ h3 {
   padding-top: 30px;
   padding-bottom: 30px;
   padding-right: 20px;
-}
-
-.resume-info {
-
 }
 
 #nav {
