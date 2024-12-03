@@ -1,0 +1,44 @@
+body {
+  margin-top: 40px;
+}
+
+.request {
+  margin-left: 90px;
+}
+
+.title-number {
+  text-align: center;
+}
+
+.number-list {
+  display: inline-block;
+  font-family: "Italiana";
+  padding-right: 15px;
+  font-size: 75px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.activity {
+  font-family: "Italiana";
+  font-size: 35px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.books-list {
+  margin-top: 0;
+  line-height: 2;
+  margin-left: 570px; 
+}
+
+footer {
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .books-list {
+    margin-left: 0px;
+    line-height: 1;
+  }
+}

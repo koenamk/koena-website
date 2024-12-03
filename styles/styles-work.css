@@ -1,0 +1,180 @@
+/* Overall body layout */
+body {
+  display: flex; /* Flexbox layout for sidebar and main content */
+  flex-direction: row; /* Horizontal layout: sidebar + main content */
+  margin: 0;
+  padding: 0;
+}
+
+#activity-heading {
+  font-family: "Italiana";
+  font-size: 40px;
+}
+
+/* Adjust the main content to avoid overlap */
+.main-content {
+  flex: 1; /* Takes up remaining space after sidebar */
+  padding: 20px;
+  margin-left: 80px;
+  z-index: 1; /* Ensures it doesn't overlap with sidebar */
+}
+
+.header {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 200;
+}
+
+.line-navigator {
+  position: fixed;
+  top: 0;
+  left: 40px; /* Adjust this to move the entire navigator horizontally */
+  height: 100vh; /* Full viewport height */
+  width: 150px; /* Fixed width for the navigator */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; /* Evenly space dots and text */
+  z-index: 10;
+  font-family: "Raleway";
+  font-weight: 200;
+}
+
+.line-navigator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px; /* Align the vertical line */
+  width: 2px; /* Thickness of the vertical line */
+  height: 100%; /* Full height of the viewport */
+  background-color: #3A261F; /* Color for the line */
+}
+
+.line-navigator a {
+  position: relative; /* Required for dot and text alignment */
+  text-decoration: none;
+  font-size: 14px; /* Text size */
+  color: #3A261F; /* Match main titles' color */
+  font-weight: bold;
+  margin-left: 50px; /* Move the text to the right of the dots */
+}
+
+.line-navigator a::before {
+  content: '';
+  position: absolute;
+  left: -23px; /* Place the dot on the vertical line */
+  top: 50%; /* Center the dot vertically with the text */
+  transform: translateY(-50%);
+  width: 8px; /* Dot size */
+  height: 8px;
+  border-radius: 50%; /* Make the dot circular */
+  background-color: #3A261F; /* Match main titles' color */
+}
+
+section {
+  top: 100px; /* Leaves space for navigation */
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle divider */
+  z-index: 2;
+  font-size: 1.5rem; /* Keep the size bold */
+  margin: 20px 0; /* Adjust spacing around */
+  color: #333;
+  text-align: left; /* Align with the content */
+}
+
+/* Card Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 20px; /* Adjust spacing between the cards */
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  height: 200px; /* Adjust height */
+  padding: 15px;
+  text-align: left;
+
+  margin-bottom: 20px; /* Spacing between cards */
+  width: calc(100% - 20px); /* Adjust for responsiveness */
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.02); /* Subtle zoom on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%; /* Image fills the card width */
+  height: 120px; /* Fixed height for images */
+  object-fit: cover; /* Ensures images don't stretch */
+  border-bottom: 1px solid #ddd;
+}
+
+.card .description {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive Design: Adjusts layout for smaller screens */
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column; /* Stack sidebar and main content */
+  }
+}
+
+/* Line Navigator Container */
+.line-navigator {
+  position: fixed; /* Fix the position relative to the viewport */
+  left: 20px; /* Adjust distance from the left edge */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align headings to the right of the line */
+  gap: 20px; /* Add space between items */
+}
+
+
+/* Vertical Line */
+.line {
+  position: absolute;
+  width: 2px; /* Thickness of the line */
+  height: 100%; /* Full height of the viewport */
+  background-color: #ccc; /* Base color of the line */
+}
+
+/* Titles (Navigation Points) */
+.titles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Spacing between titles */
+}
+
+.titles li {
+  position: relative;
+  font-size: 16px;
+  font-weight: bold;
+  color: #999; /* Inactive color */
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.titles li.active {
+  font-size: 20px; /* Enlarged size for active title */
+  color: #333; /* Highlight active title */
+  transform: scale(1.2); /* Slight zoom */
+}

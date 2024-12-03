@@ -1,0 +1,136 @@
+.italiana-regular {
+  font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #fff;
+  color: #3A261F;
+
+  font-family: "Raleway";
+  padding-top: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
+
+  line-height: 19pt;
+}
+
+a {
+  text-decoration: none;
+  color: #F1864D;
+}
+
+/* Styling for "Hi, I'm" */
+.intro {
+  font-family: "Italiana";
+  font-size: 64px; /* Adjust size */
+  font-weight: 400;
+  color: black; /* Black text */
+  text-align: center;
+  margin-top: 95px;
+  padding-bottom: 65px;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 19px;
+}
+
+.my-things,
+footer {
+  margin-top: 0;
+  font-family: "Raleway";
+  padding-left: 450px;
+  padding-right: 450px;
+  padding-top: 11px;
+}
+
+.my-standings {
+  font-family: "Source Serif 4";
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* navigation bar styles */
+.header {
+  font-family: "EB Garamond", Arial;
+  height: 55px;
+  display: flex;
+  justify-content: space-between; /* Space out the sections of the header */
+  align-items: center;
+  position: fixed;
+  top: 4px;
+  left: 10px;
+  right: 12px;
+  z-index: 100;
+  background-color: #fff;
+}
+
+#sign {
+  width: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0px;
+  padding-right: 0px;
+}
+
+.left-section {
+  display: flex; /* Ensure children are in a row */
+  align-items: center; /* Vertically center the tabs */
+  justify-content: space-between; /* Evenly space out the child elements */
+  padding: 0 1px; /* Add space inside the section */
+  width: 17vw;
+  font-size: 18px;
+}
+
+#tab-links {
+  text-decoration: none;
+  color: #3A261F;
+}
+
+#tab-links:hover {
+  background-color: #70c2d4;
+}
+
+.right-section {
+  display: flex; /* Ensure children are in a row */
+  align-items: center; /* Vertically center the tabs */
+  justify-content: space-between; /* Evenly space out the child elements */
+  padding: 0 5px; /* Add space inside the section */
+  width: 10vw;
+}
+
+/* footer */
+#final-sign {
+  display: inline;
+  width: 250px;
+  height: 100px;
+  object-fit: contain;
+  object-position: 25% 25%;
+}
+
+#year {
+  display: inline;
+  margin-right: 0;
+  font-size: 13px;
+  padding-left: 340px;
+  padding-bottom: 15px;
+}
+
+/* responsive design */
+@media (max-width: 1440px) {
+  .body,
+  {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .my-things,
+  footer,
+  .intro {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
