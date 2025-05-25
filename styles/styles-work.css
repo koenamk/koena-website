@@ -76,54 +76,10 @@ section {
   top: 100px; /* Leaves space for navigation */
   padding: 10px 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle divider */
-  z-index: 2;
   font-size: 1.5rem; /* Keep the size bold */
   margin: 20px 0; /* Adjust spacing around */
   color: #333;
   text-align: left; /* Align with the content */
-}
-
-/* Card Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-  gap: 20px; /* Adjust spacing between the cards */
-  padding: 20px;
-}
-
-.card {
-  background: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-  height: 200px; /* Adjust height */
-  padding: 15px;
-  text-align: left;
-
-  margin-bottom: 20px; /* Spacing between cards */
-  width: calc(100% - 20px); /* Adjust for responsiveness */
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: scale(1.02); /* Subtle zoom on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-  width: 100%; /* Image fills the card width */
-  height: 120px; /* Fixed height for images */
-  object-fit: cover; /* Ensures images don't stretch */
-  border-bottom: 1px solid #ddd;
-}
-
-.card .description {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #555;
 }
 
 /* Responsive Design: Adjusts layout for smaller screens */
@@ -152,29 +108,4 @@ section {
   width: 2px; /* Thickness of the line */
   height: 100%; /* Full height of the viewport */
   background-color: #ccc; /* Base color of the line */
-}
-
-/* Titles (Navigation Points) */
-.titles {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Spacing between titles */
-}
-
-.titles li {
-  position: relative;
-  font-size: 16px;
-  font-weight: bold;
-  color: #999; /* Inactive color */
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.titles li.active {
-  font-size: 20px; /* Enlarged size for active title */
-  color: #333; /* Highlight active title */
-  transform: scale(1.2); /* Slight zoom */
 }

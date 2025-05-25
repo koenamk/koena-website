@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Line Navigator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Navigation styles */
+        .vertical-nav {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .nav-line {
+            position: absolute;
+            width: 2px;
+            background-color: black;
+            height: 100%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        
+        .nav-items {
+            position: relative;
+        }
+        
+        .nav-item {
+            position: relative;
+            margin: 40px 0;
+            cursor: pointer;
+        }
+        
+        .nav-item-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: black;
+            left: -5px;
+            top: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item.active .nav-item-dot {
+            width: 16px;
+            height: 16px;
+            left: -7px;
+            top: 4px;
+            background-color: #3498db; /* Default highlight color - can be changed */
+        }
+        
+        .nav-item-label {
+            margin-left: 20px;
+            font-weight: bold;
+            color: black;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item.active .nav-item-label {
+            color: #3498db; /* Default highlight color - can be changed */
+        }
+        
+        /* Sub-navigation styles */
+        .sub-nav {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-left: 20px;
+        }
+        
+        .nav-item:hover .sub-nav,
+        .nav-item.active .sub-nav {
+            max-height: 300px; /* Large enough to show all sub-items */
+        }
+        
+        .sub-nav-item {
+            margin: 10px 0 10px 10px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            transition-delay: 0.1s;
+        }
+        
+        .nav-item:hover .sub-nav-item,
+        .nav-item.active .sub-nav-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .sub-nav-item.active {
+            color: #3498db; /* Default highlight color - can be changed */
+            font-weight: bold;
+        }
+        
+        /* Content sections */
+        .content {
+            margin-left: 150px;
+            flex: 1;
+            padding: 50px;
+        }
+        
+        section {
+            min-height: 100vh;
+            padding: 100px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        /* Customize the navigation highlight color */
+        :root {
+            --highlight-color: #3498db; /* You can change this to match your website color */
+        }
+        
+        .nav-item.active .nav-item-dot,
+        .nav-item.active .nav-item-label,
+        .sub-nav-item.active {
+            color: var(--highlight-color);
+        }
+        
+        .nav-item.active .nav-item-dot {
+            background-color: var(--highlight-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Vertical Line Navigator -->
+    <nav class="vertical-nav">
+        <div class="nav-line"></div>
+        <div class="nav-items">
+            <!-- Work Section -->
+            <div class="nav-item" data-section="work">
+                <div class="nav-item-dot"></div>
+                <div class="nav-item-label">Work</div>
+                <div class="sub-nav">
+                    <div class="sub-nav-item" data-section="work-experience">Experience</div>
+                    <div class="sub-nav-item" data-section="work-skills">Skills</div>
+                    <div class="sub-nav-item" data-section="work-education">Education</div>
+                </div>
+            </div>
+            
+            <!-- Projects Section -->
+            <div class="nav-item" data-section="projects">
+                <div class="nav-item-dot"></div>
+                <div class="nav-item-label">Projects</div>
+                <div class="sub-nav">
+                    <div class="sub-nav-item" data-section="projects-recent">Recent</div>
+                    <div class="sub-nav-item" data-section="projects-featured">Featured</div>
+                    <div class="sub-nav-item" data-section="projects-ongoing">Ongoing</div>
+                </div>
+            </div>
+            
+            <!-- People Section -->
+            <div class="nav-item" data-section="people">
+                <div class="nav-item-dot"></div>
+                <div class="nav-item-label">People</div>
+                <div class="sub-nav">
+                    <div class="sub-nav-item" data-section="people-team">Team</div>
+                    <div class="sub-nav-item" data-section="people-clients">Clients</div>
+                    <div class="sub-nav-item" data-section="people-partners">Partners</div>
+                </div>
+            </div>
+            
+            <!-- Fun Section -->
+            <div class="nav-item" data-section="fun">
+                <div class="nav-item-dot"></div>
+                <div class="nav-item-label">Fun</div>
+                <div class="sub-nav">
+                    <div class="sub-nav-item" data-section="fun-hobbies">Hobbies</div>
+                    <div class="sub-nav-item" data-section="fun-gallery">Gallery</div>
+                    <div class="sub-nav-item" data-section="fun-interests">Interests</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <div class="content">
+        <!-- Work Section -->
+        <section id="work">
+            <h1>Work</h1>
+            <p>This is the main work section content.</p>
+            
+            <div id="work-experience">
+                <h2>Experience</h2>
+                <p>Details about your work experience go here.</p>
+            </div>
+            
+            <div id="work-skills">
+                <h2>Skills</h2>
+                <p>Information about your skills and expertise.</p>
+            </div>
+            
+            <div id="work-education">
+                <h2>Education</h2>
+                <p>Your educational background and qualifications.</p>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects">
+            <h1>Projects</h1>
+            <p>This is the main projects section content.</p>
+            
+            <div id="projects-recent">
+                <h2>Recent Projects</h2>
+                <p>Overview of your most recent projects.</p>
+            </div>
+            
+            <div id="projects-featured">
+                <h2>Featured Projects</h2>
+                <p>Showcase of your best and most notable projects.</p>
+            </div>
+            
+            <div id="projects-ongoing">
+                <h2>Ongoing Projects</h2>
+                <p>Information about projects currently in progress.</p>
+            </div>
+        </section>
+        
+        <!-- People Section -->
+        <section id="people">
+            <h1>People</h1>
+            <p>This is the main people section content.</p>
+            
+            <div id="people-team">
+                <h2>Team</h2>
+                <p>Information about your team members.</p>
+            </div>
+            
+            <div id="people-clients">
+                <h2>Clients</h2>
+                <p>Overview of your clients and client relationships.</p>
+            </div>
+            
+            <div id="people-partners">
+                <h2>Partners</h2>
+                <p>Details about your business partners and collaborators.</p>
+            </div>
+        </section>
+        
+        <!-- Fun Section -->
+        <section id="fun">
+            <h1>Fun</h1>
+            <p>This is the main fun section content.</p>
+            
+            <div id="fun-hobbies">
+                <h2>Hobbies</h2>
+                <p>Information about your hobbies and recreational activities.</p>
+            </div>
+            
+            <div id="fun-gallery">
+                <h2>Gallery</h2>
+                <p>A collection of images or media showcasing your interests.</p>
+            </div>
+            
+            <div id="fun-interests">
+                <h2>Interests</h2>
+                <p>Details about your personal interests and passions.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation items and sections
+            const navItems = document.querySelectorAll('.nav-item');
+            const subNavItems = document.querySelectorAll('.sub-nav-item');
+            const sections = document.querySelectorAll('section');
+            const subSections = {};
+            
+            // Create a map of subsections
+            subNavItems.forEach(item => {
+                const sectionId = item.getAttribute('data-section');
+                subSections[sectionId] = document.getElementById(sectionId);
+            });
+            
+            // Add click event to main navigation items
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Add click event to sub navigation items
+            subNavItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent triggering parent click
+                    const sectionId = this.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Update active state on scroll
+            function updateActiveState() {
+                let currentSection = '';
+                let currentSubSection = '';
+                
+                // Find the current visible section
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const scrollY = window.scrollY;
+                    
+                    if (scrollY >= sectionTop - 200 && scrollY < sectionTop + sectionHeight - 200) {
+                        currentSection = section.id;
+                        
+                        // Check for subsections within this section
+                        const subElements = section.querySelectorAll('div[id]');
+                        subElements.forEach(subEl => {
+                            const subTop = subEl.offsetTop;
+                            const subHeight = subEl.clientHeight;
+                            
+                            if (scrollY >= subTop - 200 && scrollY < subTop + subHeight - 200) {
+                                currentSubSection = subEl.id;
+                            }
+                        });
+                    }
+                });
+                
+                // Update active states for main navigation
+                navItems.forEach(item => {
+                    const sectionId = item.getAttribute('data-section');
+                    if (sectionId === currentSection) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Update active states for sub navigation
+                subNavItems.forEach(item => {
+                    const sectionId = item.getAttribute('data-section');
+                    if (sectionId === currentSubSection) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Initial update of active state
+            updateActiveState();
+            
+            // Update active state on scroll
+            window.addEventListener('scroll', updateActiveState);
+            
+            // Update active state on window resize
+            window.addEventListener('resize', updateActiveState);
+        });
+    </script>
+</body>
+</html>

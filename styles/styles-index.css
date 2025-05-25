@@ -120,7 +120,7 @@ footer {
 }
 
 /* responsive design */
-@media (max-width: 1440px) {
+@media (max-width: 900px) {
   .body
   {
     padding-left: 0px;
