@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0
+    <!-- icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Italiana&family=Raleway:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <title>Koena's Work Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #f5f5f5;
+            color: #333;
+            padding-left: 20px;
+        }
+        
+        .update-text {
+            font-size: 24px;
+            text-align: left;
+        }
+        
+        .countdown {
+            margin-top: 20px;
+            font-size: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="tabs-container"></div>
+
+    <div class="update-text">
+      <strong>Koena is redesigning this page after a year!</strong>
+      <div id="countdown" class="countdown">10 days, 6 hours, 57 minutes, 45 seconds</div>
+    </div>
+    
+    <script>
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const targetDate = new Date('2025-10-05T23:59:00').getTime();
+            const difference = targetDate - now;
+
+            const countdownElement = document.getElementById('countdown');
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                countdownElement.textContent = 
+                    `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+            } else {
+                countdownElement.textContent = "Time's up!";
+            }
+        }
+
+        // Start the countdown immediately and then update every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+
+    <script src="active-elements/loadTabs.js"></script> <!-- Load the tabs -->
+    <script src="active-elements/tabs.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vertical Line Navigator</title>
+    <title>works</title>
     <style>
         * {
             margin: 0;
@@ -71,6 +71,11 @@
             font-weight: bold;
             color: black;
             transition: all 0.3s ease;
+            width: 170px; /* Set fixed width for text wrapping */
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1.2;
+            hyphens: auto
         }
         
         .nav-item.active .nav-item-label {
@@ -97,6 +102,10 @@
             transform: translateX(-10px);
             transition: all 0.3s ease;
             transition-delay: 0.1s;
+            width: 1500px; /* Set fixed width for sub-item text wrapping */
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1.2;
         }
         
         .nav-item:hover .sub-nav-item,
@@ -112,7 +121,7 @@
         
         /* Content sections */
         .content {
-            margin-left: 150px;
+            margin-left: 270px;
             flex: 1;
             padding: 50px;
         }
@@ -152,6 +161,15 @@
         .nav-item.active .nav-item-dot {
             background-color: var(--highlight-color);
         }
+
+        .ex-title {
+            font-weight: bolder;
+            font-size: 1em;
+        }
+
+        .date {
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -162,7 +180,7 @@
             <!-- Work Section -->
             <div class="nav-item" data-section="work">
                 <div class="nav-item-dot"></div>
-                <div class="nav-item-label">Work</div>
+                <div class="nav-item-label">Public-Facing Resume</div>
                 <div class="sub-nav">
                     <div class="sub-nav-item" data-section="work-experience">Experience</div>
                     <div class="sub-nav-item" data-section="work-skills">Skills</div>
@@ -186,20 +204,12 @@
                 <div class="nav-item-dot"></div>
                 <div class="nav-item-label">People</div>
                 <div class="sub-nav">
-                    <div class="sub-nav-item" data-section="people-team">Team</div>
-                    <div class="sub-nav-item" data-section="people-clients">Clients</div>
-                    <div class="sub-nav-item" data-section="people-partners">Partners</div>
+                    <div class="sub-nav-item" data-section="people-human-library">Human Library</div>
+                    <div class="sub-nav-item" data-section="people-connection">Connection Collective</div>
+                    <div class="sub-nav-item" data-section="people-ecc">English Conversation Circles</div>
                 </div>
             </div>
             
-            <!-- Fun Section -->
-            <div class="nav-item" data-section="fun">
-                <div class="nav-item-dot"></div>
-                <div class="nav-item-label">Fun</div>
-                <div class="sub-nav">
-                    <div class="sub-nav-item" data-section="fun-hobbies">Hobbies</div>
-                    <div class="sub-nav-item" data-section="fun-gallery">Gallery</div>
-                    <div class="sub-nav-item" data-section="fun-interests">Interests</div>
                 </div>
             </div>
         </div>
@@ -209,12 +219,40 @@
     <div class="content">
         <!-- Work Section -->
         <section id="work">
-            <h1>Work</h1>
-            <p>This is the main work section content.</p>
+            <h1>Public-Facing Resume</h1>
+            <p>An official resume that can also be found on <a href="https://www.linkedin.com/in/koena-mukherjee/" target="_blank">LinkedIn</a>.</p>
             
             <div id="work-experience">
                 <h2>Experience</h2>
-                <p>Details about your work experience go here.</p>
+                <div>
+                    <p class="ex-title">Control Assurance Associate @ <a href="https://www.rbc.com/our-company/index.html">RBC</a></p>
+                    <p class="date">May 2025 - Aug 2025</p>
+                    <div class="body">
+                        <ul>
+                            <li>Working as a Control Assurance Associate within Personal and Commercial Banking, focusing on risk management and compliance.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <p class="ex-title">Connection Lead @ <a href="https://uwaterloo.ca/welcome-warriors/connection-collective">The Connection Collective, UWaterloo</a></p>
+                    <p class="date">May 2024 - Present</p>
+                    <div class="body">
+                      <ul>
+                        <li>Leading initiatives to connect students with resources and opportunities.</li>
+                        <li>Organizing events and workshops to foster community engagement.</li>
+                      </ul>
+                    </div>
+                <div>
+                    <p class="ex-title">Project Manager at <a href="https://glocalfoundation.ca/">GLOCAL</a></p>
+                    <p class="date">May 2024 - Aug 2024</p>
+                    <div class="body">
+                        <ul>
+                          <li>Improved operational efficiency by 30% by designing, proposing and implementing calendar systems integration Lark to minimize scheduling conflicts.</li>
+                          <li>Created and presented a partnership proposal to SWRIL Communitech, Kitchener, for a micro-lending program to support youth entrepreneurship.</li>
+                        </ul>
+                    </div>
+                        
+                </div>
             </div>
             
             <div id="work-skills">
@@ -224,7 +262,7 @@
             
             <div id="work-education">
                 <h2>Education</h2>
-                <p>Your educational background and qualifications.</p>
+                <p>A Math Degree at University of Waterloo &#128290;</p>
             </div>
         </section>
         
@@ -254,42 +292,22 @@
             <h1>People</h1>
             <p>This is the main people section content.</p>
             
-            <div id="people-team">
-                <h2>Team</h2>
+            <div id="people-human-library">
+                <h2>The Human Library</h2>
                 <p>Information about your team members.</p>
             </div>
             
-            <div id="people-clients">
-                <h2>Clients</h2>
+            <div id="people-connection">
+                <h2>The Connection Collective</h2>
                 <p>Overview of your clients and client relationships.</p>
             </div>
             
-            <div id="people-partners">
-                <h2>Partners</h2>
+            <div id="people-ecc">
+                <h2>English Conversation Circles</h2>
                 <p>Details about your business partners and collaborators.</p>
             </div>
         </section>
         
-        <!-- Fun Section -->
-        <section id="fun">
-            <h1>Fun</h1>
-            <p>This is the main fun section content.</p>
-            
-            <div id="fun-hobbies">
-                <h2>Hobbies</h2>
-                <p>Information about your hobbies and recreational activities.</p>
-            </div>
-            
-            <div id="fun-gallery">
-                <h2>Gallery</h2>
-                <p>A collection of images or media showcasing your interests.</p>
-            </div>
-            
-            <div id="fun-interests">
-                <h2>Interests</h2>
-                <p>Details about your personal interests and passions.</p>
-            </div>
-        </section>
     </div>
 
     <script>
